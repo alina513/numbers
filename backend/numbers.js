@@ -12,4 +12,4 @@ const NumberSchema = new Schema(
 
 const Number = model("numbers", NumberSchema);
 
-module.exports = { Number, schemas };
+module.exports = { Number };
