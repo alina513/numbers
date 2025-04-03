@@ -3,7 +3,7 @@ const { Schema, model } = require("mongoose");
 const NumberSchema = new Schema(
   {
     number: {
-      type: Number,
+      type: String,
       required: [true, "Number is required"],
     },
   },
