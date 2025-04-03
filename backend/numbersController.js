@@ -10,10 +10,6 @@ const getNumber = async (req, res) => {
 const updateNmber = async (req, res) => {
   const { number } = req.body;
 
-  // if (typeof number !== "number") {
-  //   return res.status(400).json({ message: "Invalid number value" });
-  // }
-
   const result = await Number.findOneAndUpdate({}, { number }, { new: true });
 
   if (!result) {
