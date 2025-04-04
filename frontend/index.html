@@ -9,16 +9,41 @@
   <body>
     <div class="container">
       <picture>
-        <source srcset="image-mobile.jpg" media="(max-width: 600px)" />
-        <source srcset="image-tablet.jpg" media="(max-width: 1024px)" />
-        <img src="image-desktop.jpg" alt="Опис зображення" />
+        <source
+          srcset="
+            ./images/baner_mobile.webp    1x,
+            ./images/baner_mobile-2x.webp 2x
+          "
+          media="(max-width: 600px)"
+          type="image/webp"
+        />
+
+        <source
+          srcset="
+            ./images/baner_tablet.webp    1x,
+            ./images/baner_tablet-2x.webp 2x
+          "
+          media="(max-width: 1024px)"
+          type="image/webp"
+        />
+
+        <source
+          srcset="
+            ./images/baner_desktop.webp    1x,
+            ./images/baner_desktop-2x.webp 2x
+          "
+          media="(min-width: 1025px)"
+          type="image/webp"
+        />
+
+        <img src="./images/baner_desktop.webp" alt="Опис зображення" />
       </picture>
       <div class="counter">
-        <div id="number" class="number">0</div>
-        <div class="buttons">
-          <button class="animated-button increase">
-            Збільшити <span></span>
-          </button>
+        <button class="animated-button increase">
+          Збільшити <span></span>
+        </button>
+        <div class="number">0</div>
+        <div class="wrapper-button">
           <button class="animated-button decrease">
             Зменшити <span></span>
           </button>

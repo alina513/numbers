@@ -1,64 +1,3 @@
-// const number = document.querySelector(".number");
-// const increaseButton = document.querySelector(".increase");
-// const decreaseButton = document.querySelector(".decrease");
-// const lastUpdateEl = document.querySelector(".last-update");
-
-// async function fetchNumber() {
-//   try {
-//     const response = await fetch(
-//       "https://numbers-backend.onrender.com/api/numbers"
-//     );
-//     if (!response.ok) throw new Error("403 Forbidden");
-//     const result = await response.json();
-//     updateUI(result[0]);
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
-
-// async function updateNumber(newNumber) {
-//   try {
-//     const response = await fetch(
-//       "https://numbers-backend.onrender.com/api/numbers",
-//       {
-//         method: "PATCH",
-//         headers: { "Content-Type": "application/json" },
-//         body: JSON.stringify({ number: newNumber }),
-//       }
-//     );
-//     if (!response.ok) throw new Error("Помилка оновлення");
-//     const data = await response.json();
-//     updateUI(data);
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
-
-// function updateUI(data) {
-//   number.textContent = data.number;
-//   number.style.transform = "scale(1.5)";
-//   setTimeout(() => (number.style.transform = "scale(1)"), 300);
-//   decreaseButton.disabled = number.textContent === 0;
-//   const updateDate = new Date(data.updatedAt);
-//   lastUpdateEl.textContent = `Останнє оновлення: - ${updateDate
-//     .toString()
-//     .slice(3, 25)}`;
-// }
-
-// increaseButton.addEventListener("click", () => {
-//   updateNumber(+number.textContent + 1);
-//   lastUpdateEl.textContent = `Останнє оновлення: ${new Date()
-//     .toString()
-//     .slice(3, 25)}`;
-// });
-// decreaseButton.addEventListener("click", () => {
-//   updateNumber(+number.textContent - 1);
-//   lastUpdateEl.textContent = `Останнє оновлення: ${new Date()
-//     .toString()
-//     .slice(3, 25)}`;
-// });
-// fetchNumber();
-
 const number = document.querySelector(".number");
 const increaseButton = document.querySelector(".increase");
 const decreaseButton = document.querySelector(".decrease");
@@ -109,7 +48,6 @@ function updateUI(data) {
     .toString()
     .slice(3, 25)}`;
 
-  // Відключаємо кнопку і видаляємо слухача події, якщо число = 0
   if (numericValue === 0) {
     decreaseButton.disabled = true;
     if (handleDecrease) {
@@ -117,10 +55,9 @@ function updateUI(data) {
       handleDecrease = null;
     }
   } else {
-    // Додаємо слухач лише якщо ще не доданий
     if (!handleDecrease) {
       handleDecrease = () => {
-        const current = Number(number.textContent); // <-- беремо актуальне
+        const current = Number(number.textContent);
         if (current > 0) {
           updateNumber(current - 1);
           lastUpdateEl.textContent = `Останнє оновлення: ${new Date()

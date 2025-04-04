@@ -1,28 +1,65 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+img {
+  display: block;
+}
+
+button,
+a {
+  cursor: pointer;
+}
+
 body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
   background-color: #f4f4f4;
+  height: 100vh;
   margin: 0;
 }
 .container {
   display: flex;
-  align-items: flex-end;
-  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 20px;
+  height: 331px;
 }
 picture img {
   width: 100%;
   height: auto;
-  max-width: 300px;
+  max-width: 600px;
 }
 .counter {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   height: 100%;
-  padding: 20px;
+  padding: 10px 20px;
   background: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
@@ -32,7 +69,7 @@ picture img {
   font-weight: bold;
   transition: transform 0.3s ease-in-out;
 }
-.buttons {
+.wrapper-button {
   display: flex;
   flex-direction: column;
   gap: 10px;
