@@ -1,16 +1,20 @@
-const { Number } = require("./numbers.js");
+const { NumberModel } = require("./numbers.js");
 const HttpError = require("./HttpError.js");
 const ctrlWrapper = require("./ctrlWrapper.js");
 
 const getNumber = async (req, res) => {
-  const result = await Number.find();
+  const result = await NumberModel.find();
   res.json(result);
 };
 
 const updateNmber = async (req, res) => {
   const { number } = req.body;
 
-  const result = await Number.findOneAndUpdate({}, { number }, { new: true });
+  const result = await NumberModel.findOneAndUpdate(
+    {},
+    { number },
+    { new: true }
+  );
 
   if (!result) {
     throw HttpError(404);
