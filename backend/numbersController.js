@@ -3,6 +3,11 @@ const HttpError = require("./HttpError.js");
 const ctrlWrapper = require("./ctrlWrapper.js");
 
 const getNumber = async (req, res) => {
+  const referer = req.get("Referer");
+  const acceptHeader = req.get("Accept");
+  if (!referer && acceptHeader && acceptHeader.includes("text/html")) {
+    return res.status(403).json({ message: "Forbidden" });
+  }
   const result = await NumberModel.find();
   res.json(result);
 };
